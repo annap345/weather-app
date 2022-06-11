@@ -156,3 +156,7 @@ form {
 a {
   text-decoration: none;
 }
+
+#search-input {
+  width: 215px;
+}
