@@ -128,6 +128,18 @@ function searching(response) {
   let low = document.querySelector("#degree-min");
   let wind = document.querySelector("#wind-speed");
   let visible = document.querySelector("#visibility");
+  let weatherNow = document.getElementById("main-weather");
+  //
+  if (response.data.weather[0].main === "Clear") {
+    weatherNow.innerHTML = "";
+    weatherNow.className = "fa-solid fa-sun sun";
+  } else if (response.data.weather[0].main === "Clouds") {
+    weatherNow.innerHTML = "";
+    weatherNow.className = "fa-solid fa-cloud-sun cloud";
+  } else if (response.data.weather[0].main === "Rain") {
+    weatherNow.innerHTML = "";
+    weatherNow.className = "fa-solid fa-cloud-rain rain";
+  }
   //
   high.innerHTML = Math.round(response.data.main.temp_max);
   low.innerHTML = Math.round(response.data.main.temp_min);
@@ -147,7 +159,21 @@ function defaultNumber(response) {
   let kyivMax = document.querySelector("#degree-max");
   let kyivVisible = document.querySelector("#visibility");
   let kyivWind = document.querySelector("#wind-speed");
+  let weatherNowKyiv = document.getElementById("main-weather");
   //
+
+  if (response.data.weather[0].main === "Clear") {
+    weatherNowKyiv.innerHTML = "";
+    weatherNowKyiv.className = "fa-solid fa-sun sun";
+  } else if (response.data.weather[0].main === "Clouds") {
+    weatherNowKyiv.innerHTML = "";
+    weatherNowKyiv.className = "fa-solid fa-cloud-sun cloud";
+  } else if (response.data.weather[0].main === "Rain") {
+    weatherNowKyiv.innerHTML = "";
+    weatherNowKyiv.className = "fa-solid fa-cloud-rain rain";
+  }
+  //
+
   kyivTemp.innerHTML = Math.round(response.data.main.temp);
   kyivMax.innerHTML = Math.round(response.data.main.temp_max);
   kyivMin.innerHTML = Math.round(response.data.main.temp_min);
