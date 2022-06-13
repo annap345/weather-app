@@ -160,3 +160,14 @@ a {
 #search-input {
   width: 215px;
 }
+
+#celcius,
+#fahrenheit {
+  cursor: pointer;
+}
+
+#celcius:hover,
+#fahrenheit:hover {
+  text-decoration: underline;
+  color: #153f73;
+}

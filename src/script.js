@@ -146,6 +146,10 @@ function searching(response) {
   temperature.innerHTML = Math.round(response.data.main.temp);
   visible.innerHTML = response.data.weather[0].description;
   wind.innerHTML = `wind: ${Math.round(response.data.wind.speed)} km/h`;
+  //
+  degreeCel = response.data.main.temp;
+  degreeCelMax = response.data.main.temp_max;
+  degreeCelMin = response.data.main.temp_min;
 }
 
 //
@@ -179,6 +183,11 @@ function defaultNumber(response) {
   kyivMin.innerHTML = Math.round(response.data.main.temp_min);
   kyivVisible.innerHTML = response.data.weather[0].description;
   kyivWind.innerHTML = `wind: ${Math.round(response.data.wind.speed)} km/h`;
+
+  //
+  degreeCel = response.data.main.temp;
+  degreeCelMax = response.data.main.temp_max;
+  degreeCelMin = response.data.main.temp_min;
 }
 
 axios.get(urlDefault).then(defaultNumber);
@@ -188,4 +197,38 @@ axios.get(urlDefault).then(defaultNumber);
 let searchButton = document.querySelector("#search-form");
 searchButton.addEventListener("submit", searchFor);
 
+//
+function convertFahr() {
+  let tempFahr = document.getElementById("main-degree");
+  let tempFahrMax = document.querySelector("#degree-max");
+  let tempFahrMin = document.querySelector("#degree-min");
+
+  let convertionFahr = ((Number.isNaN(tempFahr) + degreeCel) * 9) / 5 + 32;
+  let convertionFahrMax =
+    ((Number.isNaN(tempFahrMax) + degreeCelMax) * 9) / 5 + 32;
+  let convertionFahrMin =
+    ((Number.isNaN(tempFahrMin) + degreeCelMin) * 9) / 5 + 32;
+  tempFahr.innerHTML = Math.round(convertionFahr);
+  tempFahrMax.innerHTML = Math.round(convertionFahrMax);
+  tempFahrMin.innerHTML = Math.round(convertionFahrMin);
+}
+let fahr = document.querySelector("#fahrenheit");
+fahr.addEventListener("click", convertFahr);
+//
+function convertCel() {
+  let tempCel = document.querySelector("#main-degree");
+  let tempCelMax = document.querySelector("#degree-max");
+  let tempCelMin = document.querySelector("#degree-min");
+
+  tempCel.innerHTML = Math.round(degreeCel);
+  tempCelMax.innerHTML = Math.round(degreeCelMax);
+  tempCelMin.innerHTML = Math.round(degreeCelMin);
+}
+
+let cel = document.querySelector("#celcius");
+cel.addEventListener("click", convertCel);
+//
+let degreeCel = null;
+let degreeCelMax = null;
+let degreeCelMin = null;
 //
