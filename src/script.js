@@ -296,6 +296,14 @@ function fiveForecastdaily(response) {
     fiveIcon.innerHTML = "";
     fiveIcon.className = "fa-solid fa-cloud-rain rain";
   }
+
+  //
+
+  degreeCelOne = response.data.daily[0].temp.day;
+  degreeCelTwo = response.data.daily[1].temp.day;
+  degreeCelThree = response.data.daily[2].temp.day;
+  degreeCelFour = response.data.daily[3].temp.day;
+  degreeCelFive = response.data.daily[4].temp.day;
 }
 
 //
@@ -528,6 +536,14 @@ function defaultForecast(response) {
     fiveIcon.innerHTML = "";
     fiveIcon.className = "fa-solid fa-cloud-rain rain";
   }
+
+  //
+
+  degreeCelOne = response.data.daily[0].temp.day;
+  degreeCelTwo = response.data.daily[1].temp.day;
+  degreeCelThree = response.data.daily[2].temp.day;
+  degreeCelFour = response.data.daily[3].temp.day;
+  degreeCelFive = response.data.daily[4].temp.day;
 }
 
 //
@@ -597,15 +613,33 @@ function convertFahr() {
   let tempFahr = document.getElementById("main-degree");
   let tempFahrMax = document.querySelector("#degree-max");
   let tempFahrMin = document.querySelector("#degree-min");
-
+  let oneCel = document.querySelector("#first-day");
+  let twoCel = document.querySelector("#second-day");
+  let threeCel = document.querySelector("#third-day");
+  let fourCel = document.querySelector("#fourth-day");
+  let fiveCel = document.querySelector("#fifth-day");
+  //
   let convertionFahr = ((Number.isNaN(tempFahr) + degreeCel) * 9) / 5 + 32;
   let convertionFahrMax =
     ((Number.isNaN(tempFahrMax) + degreeCelMax) * 9) / 5 + 32;
   let convertionFahrMin =
     ((Number.isNaN(tempFahrMin) + degreeCelMin) * 9) / 5 + 32;
+  let convertionOne = ((Number.isNaN(oneCel) + degreeCelOne) * 9) / 5 + 32;
+  let convertionTwo = ((Number.isNaN(twoCel) + degreeCelTwo) * 9) / 5 + 32;
+  let convertionThree =
+    ((Number.isNaN(threeCel) + degreeCelThree) * 9) / 5 + 32;
+  let convertionFour = ((Number.isNaN(fourCel) + degreeCelFour) * 9) / 5 + 32;
+  let convertionFive = ((Number.isNaN(fiveCel) + degreeCelFive) * 9) / 5 + 32;
+
+  //
   tempFahr.innerHTML = Math.round(convertionFahr);
   tempFahrMax.innerHTML = Math.round(convertionFahrMax);
   tempFahrMin.innerHTML = Math.round(convertionFahrMin);
+  oneCel.innerHTML = `${Math.round(convertionOne)}°`;
+  twoCel.innerHTML = `${Math.round(convertionTwo)}°`;
+  threeCel.innerHTML = `${Math.round(convertionThree)}°`;
+  fourCel.innerHTML = `${Math.round(convertionFour)}°`;
+  fiveCel.innerHTML = `${Math.round(convertionFive)}°`;
 }
 let fahr = document.querySelector("#fahrenheit");
 fahr.addEventListener("click", convertFahr);
@@ -616,10 +650,20 @@ function convertCel() {
   let tempCel = document.querySelector("#main-degree");
   let tempCelMax = document.querySelector("#degree-max");
   let tempCelMin = document.querySelector("#degree-min");
+  let oneCelF = document.querySelector("#first-day");
+  let twoCelF = document.querySelector("#second-day");
+  let threeCelF = document.querySelector("#third-day");
+  let fourCelF = document.querySelector("#fourth-day");
+  let fiveCelF = document.querySelector("#fifth-day");
 
   tempCel.innerHTML = Math.round(degreeCel);
   tempCelMax.innerHTML = Math.round(degreeCelMax);
   tempCelMin.innerHTML = Math.round(degreeCelMin);
+  oneCelF.innerHTML = `${Math.round(degreeCelOne)}°`;
+  twoCelF.innerHTML = `${Math.round(degreeCelTwo)}°`;
+  threeCelF.innerHTML = `${Math.round(degreeCelThree)}°`;
+  fourCelF.innerHTML = `${Math.round(degreeCelFour)}°`;
+  fiveCelF.innerHTML = `${Math.round(degreeCelFive)}°`;
 }
 
 let cel = document.querySelector("#celcius");
@@ -632,3 +676,9 @@ let degreeCelMax = null;
 let degreeCelMin = null;
 
 //
+
+let degreeCelOne = null;
+let degreeCelTwo = null;
+let degreeCelThree = null;
+let degreeCelFour = null;
+let degreeCelFive = null;
