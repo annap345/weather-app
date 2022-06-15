@@ -120,6 +120,197 @@ function searchFor(event) {
 
   axios.get(url).then(searching);
 }
+//
+
+function fiveForecastdaily(response) {
+  console.log(response);
+  let one = document.querySelector("#first-day");
+  let two = document.querySelector("#second-day");
+  let three = document.querySelector("#third-day");
+  let four = document.querySelector("#fourth-day");
+  let five = document.querySelector("#fifth-day");
+
+  //
+
+  one.innerHTML = `${Math.round(response.data.daily[0].temp.day)}°`;
+  two.innerHTML = `${Math.round(response.data.daily[1].temp.day)}°`;
+  three.innerHTML = `${Math.round(response.data.daily[2].temp.day)}°`;
+  four.innerHTML = `${Math.round(response.data.daily[3].temp.day)}°`;
+  five.innerHTML = `${Math.round(response.data.daily[4].temp.day)}°`;
+
+  //
+
+  let oneIcon = document.getElementById("weather-one");
+  let twoIcon = document.getElementById("weather-two");
+  let threeIcon = document.getElementById("weather-three");
+  let fourIcon = document.getElementById("weather-four");
+  let fiveIcon = document.getElementById("weather-five");
+
+  //
+
+  if (response.data.daily[0].weather[0].description === "clear sky") {
+    oneIcon.innerHTML = "";
+    oneIcon.className = "fa-solid fa-sun sun";
+  } else if (
+    response.data.daily[0].weather[0].description === "few clouds" ||
+    response.data.daily[0].weather[0].description === "scattered clouds" ||
+    response.data.daily[0].weather[0].description === "broken clouds" ||
+    response.data.daily[0].weather[0].description === "overcast clouds"
+  ) {
+    oneIcon.innerHTML = "";
+    oneIcon.className = "fa-solid fa-cloud-sun cloud";
+  } else if (
+    response.data.daily[0].weather[0].description === "light rain" ||
+    response.data.daily[0].weather[0].description === "moderate rain" ||
+    response.data.daily[0].weather[0].description === "heavy intensity rain" ||
+    response.data.daily[0].weather[0].description === "very heavy rain" ||
+    response.data.daily[0].weather[0].description === "extreme rain" ||
+    response.data.daily[0].weather[0].description === "freezing rain" ||
+    response.data.daily[0].weather[0].description ===
+      "light intensity shower rain" ||
+    response.data.daily[0].weather[0].description === "shower rain" ||
+    response.data.daily[0].weather[0].description ===
+      "heavy intensity shower rain" ||
+    response.data.daily[0].weather[0].description === "ragged shower rain"
+  ) {
+    oneIcon.innerHTML = "";
+    oneIcon.className = "fa-solid fa-cloud-rain rain";
+  }
+
+  //
+  if (response.data.daily[1].weather[0].description === "clear sky") {
+    twoIcon.innerHTML = "";
+    twoIcon.className = "fa-solid fa-sun sun";
+  } else if (
+    response.data.daily[1].weather[0].description === "few clouds" ||
+    response.data.daily[1].weather[0].description === "scattered clouds" ||
+    response.data.daily[1].weather[0].description === "broken clouds" ||
+    response.data.daily[1].weather[0].description === "overcast clouds"
+  ) {
+    twoIcon.innerHTML = "";
+    twoIcon.className = "fa-solid fa-cloud-sun cloud";
+  } else if (
+    response.data.daily[1].weather[0].description === "light rain" ||
+    response.data.daily[1].weather[0].description === "moderate rain" ||
+    response.data.daily[1].weather[0].description === "heavy intensity rain" ||
+    response.data.daily[1].weather[0].description === "very heavy rain" ||
+    response.data.daily[1].weather[0].description === "extreme rain" ||
+    response.data.daily[1].weather[0].description === "freezing rain" ||
+    response.data.daily[1].weather[0].description ===
+      "light intensity shower rain" ||
+    response.data.daily[1].weather[0].description === "shower rain" ||
+    response.data.daily[1].weather[0].description ===
+      "heavy intensity shower rain" ||
+    response.data.daily[1].weather[0].description === "ragged shower rain"
+  ) {
+    twoIcon.innerHTML = "";
+    twoIcon.className = "fa-solid fa-cloud-rain rain";
+  }
+  //
+
+  if (response.data.daily[2].weather[0].description === "clear sky") {
+    threeIcon.innerHTML = "";
+    threeIcon.className = "fa-solid fa-sun sun";
+  } else if (
+    response.data.daily[2].weather[0].description === "few clouds" ||
+    response.data.daily[2].weather[0].description === "scattered clouds" ||
+    response.data.daily[2].weather[0].description === "broken clouds" ||
+    response.data.daily[2].weather[0].description === "overcast clouds"
+  ) {
+    threeIcon.innerHTML = "";
+    threeIcon.className = "fa-solid fa-cloud-sun cloud";
+  } else if (
+    response.data.daily[2].weather[0].description === "light rain" ||
+    response.data.daily[2].weather[0].description === "moderate rain" ||
+    response.data.daily[2].weather[0].description === "heavy intensity rain" ||
+    response.data.daily[2].weather[0].description === "very heavy rain" ||
+    response.data.daily[2].weather[0].description === "extreme rain" ||
+    response.data.daily[2].weather[0].description === "freezing rain" ||
+    response.data.daily[2].weather[0].description ===
+      "light intensity shower rain" ||
+    response.data.daily[2].weather[0].description === "shower rain" ||
+    response.data.daily[2].weather[0].description ===
+      "heavy intensity shower rain" ||
+    response.data.daily[2].weather[0].description === "ragged shower rain"
+  ) {
+    threeIcon.innerHTML = "";
+    threeIcon.className = "fa-solid fa-cloud-rain rain";
+  }
+  //
+
+  if ((response.data.daily[3].weather[0].description = "clear sky")) {
+    fourIcon.innerHTML = "";
+    fourIcon.className = "fa-solid fa-sun sun";
+  } else if (
+    response.data.daily[3].weather[0].description === "few clouds" ||
+    response.data.daily[3].weather[0].description === "scattered clouds" ||
+    response.data.daily[3].weather[0].description === "broken clouds" ||
+    response.data.daily[3].weather[0].description === "overcast clouds"
+  ) {
+    fourIcon.innerHTML = "";
+    fourIcon.className = "fa-solid fa-cloud-sun cloud";
+  } else if (
+    response.data.daily[3].weather[0].description === "light rain" ||
+    response.data.daily[3].weather[0].description === "moderate rain" ||
+    response.data.daily[3].weather[0].description === "heavy intensity rain" ||
+    response.data.daily[3].weather[0].description === "very heavy rain" ||
+    response.data.daily[3].weather[0].description === "extreme rain" ||
+    response.data.daily[3].weather[0].description === "freezing rain" ||
+    response.data.daily[3].weather[0].description ===
+      "light intensity shower rain" ||
+    response.data.daily[3].weather[0].description === "shower rain" ||
+    response.data.daily[3].weather[0].description ===
+      "heavy intensity shower rain" ||
+    response.data.daily[3].weather[0].description === "ragged shower rain"
+  ) {
+    fourIcon.innerHTML = "";
+    fourIcon.className = "fa-solid fa-cloud-rain rain";
+  }
+  //
+
+  if (response.data.daily[4].weather[0].description === "clear sky") {
+    fiveIcon.innerHTML = "";
+    fiveIcon.className = "fa-solid fa-sun sun";
+  } else if (
+    response.data.daily[4].weather[0].description === "few clouds" ||
+    response.data.daily[4].weather[0].description === "scattered clouds" ||
+    response.data.daily[4].weather[0].description === "broken clouds" ||
+    response.data.daily[4].weather[0].description === "overcast clouds"
+  ) {
+    fiveIcon.innerHTML = "";
+    fiveIcon.className = "fa-solid fa-cloud-sun cloud";
+  } else if (
+    response.data.daily[4].weather[0].description === "light rain" ||
+    response.data.daily[4].weather[0].description === "moderate rain" ||
+    response.data.daily[4].weather[0].description === "heavy intensity rain" ||
+    response.data.daily[4].weather[0].description === "very heavy rain" ||
+    response.data.daily[4].weather[0].description === "extreme rain" ||
+    response.data.daily[4].weather[0].description === "freezing rain" ||
+    response.data.daily[4].weather[0].description ===
+      "light intensity shower rain" ||
+    response.data.daily[4].weather[0].description === "shower rain" ||
+    response.data.daily[4].weather[0].description ===
+      "heavy intensity shower rain" ||
+    response.data.daily[4].weather[0].description === "ragged shower rain"
+  ) {
+    fiveIcon.innerHTML = "";
+    fiveIcon.className = "fa-solid fa-cloud-rain rain";
+  }
+}
+
+//
+
+//
+
+function forecast(coordinates) {
+  let apiKey = "d2e3511352e3ff24514830ca0f6b94b4";
+  let lat = coordinates.lat;
+  let lon = coordinates.lon;
+  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrlForecast).then(fiveForecastdaily);
+}
+
+//
 
 function searching(response) {
   console.log(response.data);
@@ -129,7 +320,9 @@ function searching(response) {
   let wind = document.querySelector("#wind-speed");
   let visible = document.querySelector("#visibility");
   let weatherNow = document.getElementById("main-weather");
+
   //
+
   if (response.data.weather[0].main === "Clear") {
     weatherNow.innerHTML = "";
     weatherNow.className = "fa-solid fa-sun sun";
@@ -140,16 +333,210 @@ function searching(response) {
     weatherNow.innerHTML = "";
     weatherNow.className = "fa-solid fa-cloud-rain rain";
   }
+
   //
+
   high.innerHTML = Math.round(response.data.main.temp_max);
   low.innerHTML = Math.round(response.data.main.temp_min);
   temperature.innerHTML = Math.round(response.data.main.temp);
   visible.innerHTML = response.data.weather[0].description;
   wind.innerHTML = `wind: ${Math.round(response.data.wind.speed)} km/h`;
+
   //
+
   degreeCel = response.data.main.temp;
   degreeCelMax = response.data.main.temp_max;
   degreeCelMin = response.data.main.temp_min;
+
+  //
+
+  forecast(response.data.coord);
+}
+
+//
+
+function defaultForecast(response) {
+  console.log(response);
+  let oneKyiv = document.querySelector("#first-day");
+  let twoKyiv = document.querySelector("#second-day");
+  let threeKyiv = document.querySelector("#third-day");
+  let fourKyiv = document.querySelector("#fourth-day");
+  let fiveKyiv = document.querySelector("#fifth-day");
+
+  //
+
+  oneKyiv.innerHTML = `${Math.round(response.data.daily[0].temp.day)}°`;
+  twoKyiv.innerHTML = `${Math.round(response.data.daily[1].temp.day)}°`;
+  threeKyiv.innerHTML = `${Math.round(response.data.daily[2].temp.day)}°`;
+  fourKyiv.innerHTML = `${Math.round(response.data.daily[3].temp.day)}°`;
+  fiveKyiv.innerHTML = `${Math.round(response.data.daily[4].temp.day)}°`;
+
+  //
+  let oneIcon = document.getElementById("weather-one");
+  let twoIcon = document.getElementById("weather-two");
+  let threeIcon = document.getElementById("weather-three");
+  let fourIcon = document.getElementById("weather-four");
+  let fiveIcon = document.getElementById("weather-five");
+
+  //
+
+  if (response.data.daily[0].weather[0].description === "clear sky") {
+    oneIcon.innerHTML = "";
+    oneIcon.className = "fa-solid fa-sun sun";
+  } else if (
+    response.data.daily[0].weather[0].description === "few clouds" ||
+    response.data.daily[0].weather[0].description === "scattered clouds" ||
+    response.data.daily[0].weather[0].description === "broken clouds" ||
+    response.data.daily[0].weather[0].description === "overcast clouds"
+  ) {
+    oneIcon.innerHTML = "";
+    oneIcon.className = "fa-solid fa-cloud-sun cloud";
+  } else if (
+    response.data.daily[0].weather[0].description === "light rain" ||
+    response.data.daily[0].weather[0].description === "moderate rain" ||
+    response.data.daily[0].weather[0].description === "heavy intensity rain" ||
+    response.data.daily[0].weather[0].description === "very heavy rain" ||
+    response.data.daily[0].weather[0].description === "extreme rain" ||
+    response.data.daily[0].weather[0].description === "freezing rain" ||
+    response.data.daily[0].weather[0].description ===
+      "light intensity shower rain" ||
+    response.data.daily[0].weather[0].description === "shower rain" ||
+    response.data.daily[0].weather[0].description ===
+      "heavy intensity shower rain" ||
+    response.data.daily[0].weather[0].description === "ragged shower rain"
+  ) {
+    oneIcon.innerHTML = "";
+    oneIcon.className = "fa-solid fa-cloud-rain rain";
+  }
+
+  //
+  if (response.data.daily[1].weather[0].description === "clear sky") {
+    twoIcon.innerHTML = "";
+    twoIcon.className = "fa-solid fa-sun sun";
+  } else if (
+    response.data.daily[1].weather[0].description === "few clouds" ||
+    response.data.daily[1].weather[0].description === "scattered clouds" ||
+    response.data.daily[1].weather[0].description === "broken clouds" ||
+    response.data.daily[1].weather[0].description === "overcast clouds"
+  ) {
+    twoIcon.innerHTML = "";
+    twoIcon.className = "fa-solid fa-cloud-sun cloud";
+  } else if (
+    response.data.daily[1].weather[0].description === "light rain" ||
+    response.data.daily[1].weather[0].description === "moderate rain" ||
+    response.data.daily[1].weather[0].description === "heavy intensity rain" ||
+    response.data.daily[1].weather[0].description === "very heavy rain" ||
+    response.data.daily[1].weather[0].description === "extreme rain" ||
+    response.data.daily[1].weather[0].description === "freezing rain" ||
+    response.data.daily[1].weather[0].description ===
+      "light intensity shower rain" ||
+    response.data.daily[1].weather[0].description === "shower rain" ||
+    response.data.daily[1].weather[0].description ===
+      "heavy intensity shower rain" ||
+    response.data.daily[1].weather[0].description === "ragged shower rain"
+  ) {
+    twoIcon.innerHTML = "";
+    twoIcon.className = "fa-solid fa-cloud-rain rain";
+  }
+  //
+
+  if (response.data.daily[2].weather[0].description === "clear sky") {
+    threeIcon.innerHTML = "";
+    threeIcon.className = "fa-solid fa-sun sun";
+  } else if (
+    response.data.daily[2].weather[0].description === "few clouds" ||
+    response.data.daily[2].weather[0].description === "scattered clouds" ||
+    response.data.daily[2].weather[0].description === "broken clouds" ||
+    response.data.daily[2].weather[0].description === "overcast clouds"
+  ) {
+    threeIcon.innerHTML = "";
+    threeIcon.className = "fa-solid fa-cloud-sun cloud";
+  } else if (
+    response.data.daily[2].weather[0].description === "light rain" ||
+    response.data.daily[2].weather[0].description === "moderate rain" ||
+    response.data.daily[2].weather[0].description === "heavy intensity rain" ||
+    response.data.daily[2].weather[0].description === "very heavy rain" ||
+    response.data.daily[2].weather[0].description === "extreme rain" ||
+    response.data.daily[2].weather[0].description === "freezing rain" ||
+    response.data.daily[2].weather[0].description ===
+      "light intensity shower rain" ||
+    response.data.daily[2].weather[0].description === "shower rain" ||
+    response.data.daily[2].weather[0].description ===
+      "heavy intensity shower rain" ||
+    response.data.daily[2].weather[0].description === "ragged shower rain"
+  ) {
+    threeIcon.innerHTML = "";
+    threeIcon.className = "fa-solid fa-cloud-rain rain";
+  }
+  //
+
+  if (response.data.daily[3].weather[0].description === "clear sky") {
+    fourIcon.innerHTML = "";
+    fourIcon.className = "fa-solid fa-sun sun";
+  } else if (
+    response.data.daily[3].weather[0].description === "few clouds" ||
+    response.data.daily[3].weather[0].description === "scattered clouds" ||
+    response.data.daily[3].weather[0].description === "broken clouds" ||
+    response.data.daily[3].weather[0].description === "overcast clouds"
+  ) {
+    fourIcon.innerHTML = "";
+    fourIcon.className = "fa-solid fa-cloud-sun cloud";
+  } else if (
+    response.data.daily[3].weather[0].description === "light rain" ||
+    response.data.daily[3].weather[0].description === "moderate rain" ||
+    response.data.daily[3].weather[0].description === "heavy intensity rain" ||
+    response.data.daily[3].weather[0].description === "very heavy rain" ||
+    response.data.daily[3].weather[0].description === "extreme rain" ||
+    response.data.daily[3].weather[0].description === "freezing rain" ||
+    response.data.daily[3].weather[0].description ===
+      "light intensity shower rain" ||
+    response.data.daily[3].weather[0].description === "shower rain" ||
+    response.data.daily[3].weather[0].description ===
+      "heavy intensity shower rain" ||
+    response.data.daily[3].weather[0].description === "ragged shower rain"
+  ) {
+    fourIcon.innerHTML = "";
+    fourIcon.className = "fa-solid fa-cloud-rain rain";
+  }
+  //
+
+  if (response.data.daily[4].weather[0].description === "clear sky") {
+    fiveIcon.innerHTML = "";
+    fiveIcon.className = "fa-solid fa-sun sun";
+  } else if (
+    response.data.daily[4].weather[0].description === "few clouds" ||
+    response.data.daily[4].weather[0].description === "scattered clouds" ||
+    response.data.daily[4].weather[0].description === "broken clouds" ||
+    response.data.daily[4].weather[0].description === "overcast clouds"
+  ) {
+    fiveIcon.innerHTML = "";
+    fiveIcon.className = "fa-solid fa-cloud-sun cloud";
+  } else if (
+    response.data.daily[4].weather[0].description === "light rain" ||
+    response.data.daily[4].weather[0].description === "moderate rain" ||
+    response.data.daily[4].weather[0].description === "heavy intensity rain" ||
+    response.data.daily[4].weather[0].description === "very heavy rain" ||
+    response.data.daily[4].weather[0].description === "extreme rain" ||
+    response.data.daily[4].weather[0].description === "freezing rain" ||
+    response.data.daily[4].weather[0].description ===
+      "light intensity shower rain" ||
+    response.data.daily[4].weather[0].description === "shower rain" ||
+    response.data.daily[4].weather[0].description ===
+      "heavy intensity shower rain" ||
+    response.data.daily[4].weather[0].description === "ragged shower rain"
+  ) {
+    fiveIcon.innerHTML = "";
+    fiveIcon.className = "fa-solid fa-cloud-rain rain";
+  }
+}
+
+//
+function forecastKyiv(coordinates) {
+  let apiKey = "d2e3511352e3ff24514830ca0f6b94b4";
+  let lat = coordinates.lat;
+  let lon = coordinates.lon;
+  let apiUrlForecastKyiv = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrlForecastKyiv).then(defaultForecast);
 }
 
 //
@@ -164,6 +551,7 @@ function defaultNumber(response) {
   let kyivVisible = document.querySelector("#visibility");
   let kyivWind = document.querySelector("#wind-speed");
   let weatherNowKyiv = document.getElementById("main-weather");
+
   //
 
   if (response.data.weather[0].main === "Clear") {
@@ -176,6 +564,7 @@ function defaultNumber(response) {
     weatherNowKyiv.innerHTML = "";
     weatherNowKyiv.className = "fa-solid fa-cloud-rain rain";
   }
+
   //
 
   kyivTemp.innerHTML = Math.round(response.data.main.temp);
@@ -185,9 +574,14 @@ function defaultNumber(response) {
   kyivWind.innerHTML = `wind: ${Math.round(response.data.wind.speed)} km/h`;
 
   //
+
   degreeCel = response.data.main.temp;
   degreeCelMax = response.data.main.temp_max;
   degreeCelMin = response.data.main.temp_min;
+
+  //
+
+  forecastKyiv(response.data.coord);
 }
 
 axios.get(urlDefault).then(defaultNumber);
@@ -198,6 +592,7 @@ let searchButton = document.querySelector("#search-form");
 searchButton.addEventListener("submit", searchFor);
 
 //
+
 function convertFahr() {
   let tempFahr = document.getElementById("main-degree");
   let tempFahrMax = document.querySelector("#degree-max");
@@ -214,7 +609,9 @@ function convertFahr() {
 }
 let fahr = document.querySelector("#fahrenheit");
 fahr.addEventListener("click", convertFahr);
+
 //
+
 function convertCel() {
   let tempCel = document.querySelector("#main-degree");
   let tempCelMax = document.querySelector("#degree-max");
@@ -227,8 +624,11 @@ function convertCel() {
 
 let cel = document.querySelector("#celcius");
 cel.addEventListener("click", convertCel);
+
 //
+
 let degreeCel = null;
 let degreeCelMax = null;
 let degreeCelMin = null;
+
 //
